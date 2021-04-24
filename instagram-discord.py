@@ -28,7 +28,7 @@ import time
 # Set TIME_INTERVAL to the time in seconds in between each check for a new post. Example - 1.5, 600 (default=600)
 # Help: https://www.serverlab.ca/tutorials/linux/administration-linux/how-to-set-environment-variables-in-linux/
 
-INSTAGRAM_USERNAME = os.environ.get('IG_USERNAME')
+INSTAGRAM_USERNAME = 'hkuniversity'
 
 # ----------------------- Do not modify under this line ----------------------- #
 
@@ -100,16 +100,16 @@ def main():
         else:
             os.environ["LAST_IMAGE_ID"] = get_last_publication_url(html)
             print("New image to post in discord.")
-            webhook(os.environ.get("WEBHOOK_URL"),
+            webhook("https://discord.com/api/webhooks/835586927717253150/AbCe6Qi4F2yhWzDwXa1ZTdr6oLbxKyJST1exJcxYW-xgpCju2yaFAts1Pk7o6hIvxHuw"),
                     get_instagram_html(INSTAGRAM_USERNAME))
     except Exception as e:
         print(e)
 
 
 if __name__ == "__main__":
-    if os.environ.get('IG_USERNAME') != None and os.environ.get('WEBHOOK_URL') != None:
+    if os.environ.get('IG_USERNAME') != None and "https://discord.com/api/webhooks/835586927717253150/AbCe6Qi4F2yhWzDwXa1ZTdr6oLbxKyJST1exJcxYW-xgpCju2yaFAts1Pk7o6hIvxHuw" != None:
         while True:
             main()
-            time.sleep(float(os.environ.get('TIME_INTERVAL') or 600)) # 600 = 10 minutes
+            time.sleep(1200.00) # 600 = 10 minutes
     else:
         print('Please configure environment variables properly!')
